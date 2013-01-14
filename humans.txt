@@ -1,0 +1,18 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Jon Peck -- Author -- @fluxsauce
+
+# THANKS
+
+    Mark Niemann-Ross
+    Sarah Foster-Peck
+    Scott Simpson
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    jQuery, Modernizr
+    HTML5 Boilerplate w/ Bootstrap - http://html5boilerplate.com/

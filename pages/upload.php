@@ -16,7 +16,7 @@ if (!extension_loaded('imagick')) {
 $show_form = TRUE;
 
 // If a file has been uploaded...
-if (isset($_FILES['image']['tmp_name'])) {
+if (isset($_FILES['image']['tmp_name']) && $_FILES['image']['tmp_name']) {
   // Try to read file as an image.
   try {
     $imagick = new Imagick($_FILES['image']['tmp_name']);
@@ -96,7 +96,7 @@ if (isset($_FILES['image']['tmp_name'])) {
   }
   else {
     echo renderMsg('error', array(
-      'heading' => 'Unable to image file to Amazon S3!',
+      'heading' => 'Unable to upload image file to Amazon S3!',
       'body' => getAwsError($s3_upload_response),
     ));
     return;

@@ -12,12 +12,20 @@
  */
 function getAwsError($response) {
   $message = '';
-	if (isset($response->body) && isset($response->body->Errors->Error)) {
-    $error = $response->body->Errors->Error;
-    if (isset($error->Code)) {
-      $message .= $error->Code . ': ';
+	if (isset($response->body)) {
+    if (isset($response->body->Errors->Error)) {
+      $error = $response->body->Errors->Error;
+      if (isset($error->Code)) {
+        $message .= $error->Code . ': ';
+      }
+      $message .= $error->Message;
     }
-    $message .= $error->Message;
+    else if (isset($response->body->Message)) {
+      if (isset($response->body->Code)) {
+        $message .= $response->body->Code . ': ';
+      }
+      $message .= $response->body->Message;
+    }
   }
 	return $message;
 }

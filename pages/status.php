@@ -52,7 +52,7 @@ if (!UARWAWS_SNS_TOPIC) {
 }
 else {
   echo renderMsg('success', array(
-    'heading' => 'Simple Notification Service topic found:',
+    'heading' => 'Simple Notification Service topic name found:',
     'body' => UARWAWS_SNS_TOPIC,
   ));
 }

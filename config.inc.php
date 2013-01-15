@@ -4,7 +4,7 @@
  * Local configuration; requires editing.
  */
 
-const UARWAWS_S3_BUCKET = '';
-const UARWAWS_SQS_QUEUE = '';
-const UARWAWS_SDB_DOMAIN = '';
-const UARWAWS_SNS_TOPIC = '';
+define('UARWAWS_S3_BUCKET' , '');
+define('UARWAWS_SDB_DOMAIN' , '');
+define('UARWAWS_SQS_QUEUE' , '');
+define('UARWAWS_SNS_TOPIC' , '');

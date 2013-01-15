@@ -177,3 +177,37 @@ else {
   ));
   return;
 }
+
+// Connect to Amazon CloudWatch.
+try {
+  $cw = new AmazonCloudWatch();
+}
+catch (Exception $e) {
+  echo renderMsg('error', array(
+    'heading' => 'Unable to connect to Amazon CloudWatch Service!',
+    'body' => var_export($e->getMessage(), TRUE),
+  ));
+  return;
+}
+
+// Processed file count metric.
+$cw_put_metric_response = $cw->put_metric_data('Watermark', array(
+  array(
+    'MetricName' => 'ProcessedFiles',
+    'Unit' => 'Count',
+    'Value' => 1,
+  ),
+));
+
+if ($cw_put_metric_response->isOK()) {
+  echo renderMsg('success', array(
+    'body' => 'Processed file metric added to CloudWatch.',
+  ));
+}
+else {
+  echo renderMsg('error', array(
+    'heading' => 'Unable to update process file count with CloudWatch',
+    'body' => getAwsError($cw_put_metric_response),
+  ));
+  return;
+}
